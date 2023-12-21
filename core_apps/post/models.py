@@ -7,6 +7,10 @@ class DailyLikes(models.Model):
     date = models.DateField(unique=True)
     likes_count = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = 'DailyLikes'
+        verbose_name_plural = 'DailyLikes'
+        
     def __str__(self):
         return f"{self.date} - {self.likes_count} likes"
 

@@ -10,8 +10,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView)
 
-router = DefaultRouter()
-router.register('activity', UserActivityViewSet, basename='activity')
+UserActivity = UserActivityViewSet.as_view(
+    {
+        'get': 'list',
+    }
+)
 
 
 Registration = RegistrationViewSet.as_view(
@@ -29,7 +32,6 @@ urlpatterns = [
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('token/logout/', LogoutView.as_view, name='token_logout'),
     path('', Registration, name='user'),
-    path('<int:pk>/', RegistrationViewSet.as_view({'get':'retrieve'}, name='user-detail'))
+    path('<int:pk>/', RegistrationViewSet.as_view({'get':'retrieve'}, name='user-detail')),
+    path('activity/', UserActivity, name='activity')
 ]
-
-urlpatterns += router.urls

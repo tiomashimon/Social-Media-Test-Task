@@ -3,5 +3,3 @@ from .models import UserActivity
 
 
 admin.site.register(UserActivity)
-
-
