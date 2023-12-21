@@ -4,6 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 from django.contrib.auth.models import User
 from .models import UserActivity
 from .serializers import UserSeralizer, UserActivitySeralizer
+from rest_framework.views import APIView
 
 
 class RegistrationViewSet(ModelViewSet):
@@ -15,3 +16,8 @@ class RegistrationViewSet(ModelViewSet):
 class UserActivityViewSet(ModelViewSet):
     queryset = UserActivity.objects.all()
     serializer_class = UserActivitySeralizer
+
+
+
+        
+
