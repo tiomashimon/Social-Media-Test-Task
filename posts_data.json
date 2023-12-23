@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "title": "Example Title",
+    "content": "Example Content",
+    "likes": [],
+    "created_by": 1
+  }
+]

@@ -33,5 +33,6 @@ urlpatterns = [
     path('token/logout/', LogoutView.as_view, name='token_logout'),
     path('', Registration, name='user'),
     path('<int:pk>/', RegistrationViewSet.as_view({'get':'retrieve'}, name='user-detail')),
-    path('activity/', UserActivity, name='activity')
+    path('activity/', UserActivity, name='activity'),
+    
 ]

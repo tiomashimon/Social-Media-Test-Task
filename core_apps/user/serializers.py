@@ -5,7 +5,7 @@ from .models import UserActivity
 class UserSeralizer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['id','username', 'password']
         extra_kwargs = {'password': {'write_only': True}}
     
     def create(self, validated_data):
@@ -22,3 +22,4 @@ class UserActivitySeralizer(serializers.ModelSerializer):
     class Meta:
         model = UserActivity
         fields = '__all__'
+

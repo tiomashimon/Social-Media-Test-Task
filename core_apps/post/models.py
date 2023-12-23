@@ -24,7 +24,9 @@ class Post(models.Model):
     created_by = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
 
     def like_unlike(self, user):
-        daily_likes = DailyLikes.objects.get(date=timezone.now())
+        daily_likes = DailyLikes.objects.filter(date=timezone.now()).first()
+        if not daily_likes:
+            daily_likes = DailyLikes.objects.create(date=timezone.now())
         response = ''
         if user in self.likes.all():
             self.likes.remove(user)

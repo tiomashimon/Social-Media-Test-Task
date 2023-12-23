@@ -30,4 +30,6 @@ class PostSerializer(serializers.Serializer):
         return instance
         
 
-        
+class DailyLikesAnalyticsSerializer(serializers.Serializer):
+    date = serializers.DateField()
+    likes_count_agg = serializers.IntegerField(source='likes_count')
